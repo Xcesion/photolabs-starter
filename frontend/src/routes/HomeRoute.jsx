@@ -1,10 +1,37 @@
-import React from 'react';
+/* eslint-disable no-undef */
+import React , {useState} from "react";
 
-import '../styles/HomeRoute.scss';
+import "../styles/HomeRoute.scss";
+import TopNavigationBar from "../components/TopNavigationBar";
+import PhotoList from "../components/PhotoList";
 
-const HomeRoute = () => 
-  <div className="home-route">
-    {/* Insert React */}
-  </div>
+const HomeRoute = (props) => {
+  const [likedPhotos, setLikedPhotos] = useState([]);
+
+  const handlePhotoLike = (photoId) => {
+    if (likedPhotos.includes(photoId)) {
+      setLikedPhotos(likedPhotos.filter((id) => id !== photoId));
+    } else {
+      setLikedPhotos([...likedPhotos, photoId]);
+    }
+  };
+
+  return (
+    <div className="home-route">
+      {/* Insert React */}
+      <nav>
+        <TopNavigationBar topics={props.topics} likedPhotos ={likedPhotos} />
+      </nav>
+      <span className="photo-list" >
+        <PhotoList
+          onPhotoSelected={props.onPhotoSelected}
+          photos={props.photos}
+          likedPhotos={likedPhotos}
+          onPhotoLike={handlePhotoLike}
+        />
+      </span>
+    </div>
+  );
+};
 
 export default HomeRoute;

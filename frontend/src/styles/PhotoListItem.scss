@@ -36,6 +36,13 @@
   display: flex;
 }
 
+.photo-list__text_align{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items:center;
+}
+
 .photo-list__user-info {
   margin-top: 5px;
   font-weight: 700;
@@ -45,4 +52,5 @@
 
 .photo-list__user-location {
   color: #838383;
+  font-size: 10px;
 }
