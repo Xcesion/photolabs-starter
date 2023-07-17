@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import photos from "../mocks/photos";
+import photos from "./mocks/photos";
 
 const useApplicationData = () => {
   const [selectedPhoto, setSelectedPhoto] = useState({});
