@@ -56,18 +56,8 @@ const reducer = (state, action) => {
       isModalOpen: false
     };
   }
-  // case ACTIONS.GET_PHOTOS_BY_TOPIC: {
-  //   const { topicId, dispatch } = action.payload;
-  //   getPhotosByTopic(topicId, dispatch);
-  //   return state;
-  // }
 
-  // case ACTIONS.DISPLAY_PHOTO_DETAILS:{
-  //   return {
-  //     ...state,
-  //     displayPhotoDetails: action.payload.displayPhoto
-  //   };
-  // }
+
   default:
     throw new Error(
       `Tried to reduce with unsupported action type: ${action.type}`

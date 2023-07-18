@@ -4,9 +4,7 @@ import PhotoList from "../components/PhotoList";
 
 export const PhotoDetailsModal = (props) => {
   const similarPhotos = Object.values(props.photo.similar_photos);
-  console.log("show similar photos", similarPhotos);
-  // const {id, location, imageSource, username, profile, onClose} = props
-  // console.log(id, location, imageSource, username, profile);
+  // console.log("show similar photos", similarPhotos);
   return (
     <div className="photo-details-modal">
       <button
@@ -45,7 +43,6 @@ export const PhotoDetailsModal = (props) => {
         <img
           className="photo-details-modal__image"
           src={props.photo.urls.full}
-          // alt={`Photo ${id}`}
         />
         <div className="photo-details-modal__header">
           <span>Similar Photos</span>
