@@ -20,7 +20,7 @@ const HomeRoute = (props) => {
     <div className="home-route">
       {/* Insert React */}
       <nav>
-        <TopNavigationBar topics={props.topics} likedPhotos ={likedPhotos} />
+        <TopNavigationBar topics={props.topics} likedPhotos ={likedPhotos} getPhotosByTopic={props.getPhotosByTopic}/>
       </nav>
       <span className="photo-list" >
         <PhotoList

@@ -8,40 +8,41 @@ import useApplicationData from "./hooks/useApplicationData";
 
 
 
-const App = () => {
-  const { selectedPhoto, isModalOpen, selectPhoto, closeModal } =
+const App = () =>{
+  const { selectPhoto, closeModal, getPhotosByTopic, state } =
     useApplicationData();
 
-  const [photos, setPhotos] = useState([]);
-  const [topics, setTopics] = useState([]);
+  // const [photos, setPhotos] = useState([]);
+  // const [topics, setTopics] = useState([]);
 
-  useEffect(() => {
-    fetch("./api/photos")
-      .then((res) => res.json()) // Parse the response as JSON
-      .then((data) => setPhotos(data)) // Update the state with the data
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+  // useEffect(() => {
+  //   fetch("./api/photos")
+  //     .then((res) => res.json())
+  //     .then((data) => setPhotos(data))
+  //     .catch((error) => {
+  //       console.error("Error fetching data:", error);
+  //     });
 
-    fetch("./api/topics")
-      .then((res) => res.json())
-      .then((data) => setTopics(data))
-      .catch((error) => {
-        console.error("Error fetching topics:", error);
-      });
-  }, []);
+  //   fetch("./api/topics")
+  //     .then((res) => res.json())
+  //     .then((data) => setTopics(data))
+  //     .catch((error) => {
+  //       console.error("Error fetching topics:", error);
+  //     });
+  // }, []);
 
   return (
     <div className="App">
       <HomeRoute
-        photos={photos}
-        topics={topics}
+        photos={state.photos}
+        topics={state.topics}
         onPhotoSelected={selectPhoto}
+        getPhotosByTopic = {getPhotosByTopic}
       />
-      {isModalOpen && (
+      {state.isModalOpen && (
         <PhotoDetailsModal
-          photo={selectedPhoto}
-          photos={photos}
+          photo={state.selectedPhoto}
+          photos={state.photos}
           setModalOpen={closeModal}
         />
       )}
