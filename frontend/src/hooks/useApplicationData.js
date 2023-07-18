@@ -13,16 +13,18 @@ const useApplicationData = () => {
     isModalOpen: false
   };
 
-  const [likedPhotos, setLikedPhotos] = useState([]);
+  
   const [state, dispatch] = useReducer(reducer, initialState);
+  // const [likedPhotos, setLikedPhotos] = useState([]);
+  // const handlePhotoLike = (photoId) => {
+  //   if (likedPhotos.includes(photoId)) {
+  //     setLikedPhotos(likedPhotos.filter((id) => id !== photoId));
+  //   } else {
+  //     setLikedPhotos([...likedPhotos, photoId]);
+  //   }
+  // };
 
-  const handlePhotoLike = (photoId) => {
-    if (likedPhotos.includes(photoId)) {
-      setLikedPhotos(likedPhotos.filter((id) => id !== photoId));
-    } else {
-      setLikedPhotos([...likedPhotos, photoId]);
-    }
-  };
+  
 
   const getPhotosByTopic = async(topicId) => {
     try {
@@ -40,6 +42,7 @@ const useApplicationData = () => {
   
   const [photos, setPhotos] = useState([]);
   const [topics, setTopics] = useState([]);
+  
 
   useEffect(() => {
     fetch("./api/photos")
@@ -67,10 +70,20 @@ const useApplicationData = () => {
     dispatch({type: ACTIONS.CLOSE_MODEL});
   };
 
+  const addFavPhoto = () =>{
+    dispatch({type: ACTIONS.FAV_PHOTO_ADDED});
+  };
+
+  const removeFavPhoto = () =>{
+    dispatch({type: ACTIONS.FAV_PHOTO_REMOVED});
+  };
+
   return {
     selectPhoto,
     closeModal,
     getPhotosByTopic,
+    addFavPhoto,
+    removeFavPhoto,
     state
   };
 };

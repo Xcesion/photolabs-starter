@@ -1,10 +1,12 @@
 import React from "react";
 import "../styles/PhotoDetailsModal.scss";
 import PhotoList from "../components/PhotoList";
+import PhotoFavButton from "../components/PhotoFavButton";
 
 export const PhotoDetailsModal = (props) => {
   const similarPhotos = Object.values(props.photo.similar_photos);
-  // console.log("show similar photos", similarPhotos);
+
+
   return (
     <div className="photo-details-modal">
       <button
@@ -40,9 +42,11 @@ export const PhotoDetailsModal = (props) => {
         </svg>
       </button>
       <div className="photo-details-modal__images">
+        <PhotoFavButton isLiked={props.isLiked} onClick={() => props.onPhotoLike(props.photo.id)} />
         <img
           className="photo-details-modal__image"
           src={props.photo.urls.full}
+          onClick={() => props.onPhotoSelected(props.photo.id)}
         />
         <div className="photo-details-modal__header">
           <span>Similar Photos</span>

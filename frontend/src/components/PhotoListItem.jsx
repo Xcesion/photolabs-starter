@@ -5,7 +5,7 @@ import PhotoFavButton from "./PhotoFavButton";
 import PhotoDetailsModal from "../routes/PhotoDetailsModal";
 
 const PhotoListItem = (props) => {
-  /* Insert React */
+
   const {
     id,
     location,
@@ -17,9 +17,9 @@ const PhotoListItem = (props) => {
     onPhotoSelected
   } = props;
 
-  console.log(id);
+  // console.log(id);
   const isLiked = likedPhotos?.includes(id);
-  console.log("liked photos:", likedPhotos);
+  // console.log("liked photos:", likedPhotos);
 
   return (
     <li className="photo-list__item">
