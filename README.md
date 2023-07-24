@@ -22,3 +22,8 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+
+## Output
+!["Screenshot of PhotoLabs Home Page"](https://github.com/Xcesion/tweeter_newtemp/blob/master/docs/responsive-design.png?raw=true)
+
+!["Screenshot of PhotoLabs Photos Details"](https://github.com/Xcesion/tweeter_newtemp/blob/master/docs/responsive-design.png?raw=true)
